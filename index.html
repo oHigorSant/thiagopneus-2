@@ -122,7 +122,7 @@
         min-height: auto;
       }      .hero h1 {
         font-size: clamp(2.5rem, 5vw, 4rem);
-        margin-bottom: 45px;
+        margin-bottom: 25px;
         line-height: 1.1;
         letter-spacing: -0.03em;
         text-wrap: balance;
@@ -160,7 +160,7 @@
         display: block;
         max-height: 150px;
         width: auto;
-        margin: 0 auto 60px;
+        margin: 0 auto 30px;
         filter: drop-shadow(0 0 10px rgba(60, 174, 254, 0.2));
       }
 
@@ -184,31 +184,34 @@
       }
 
       /* Botões */
-      .cta-button {
+      .cta-button, .submit-btn {
         position: relative;
         background: #3CAEFE;
         color: #FFFFFF;
-        padding: 16px 36px;
+        padding: 16px 40px;
         border: none;
         border-radius: 6px;
         font-size: 1rem;
         font-family: "Oswald", sans-serif;
         font-weight: 700;
-        letter-spacing: 1px;
+        letter-spacing: 1.5px;
         text-transform: uppercase;
         cursor: pointer;
         transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         text-decoration: none;
-        display: inline-flex;
+        display: flex;
         align-items: center;
         justify-content: center;
         gap: 12px;
         z-index: 1;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(60, 174, 254, 0.2);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 10px 40px rgba(60, 174, 254, 0.25);
         overflow: hidden;
-        width: auto;
+        width: fit-content;
+        height: auto;
+        min-height: 54px;
+        margin: 40px auto 0;
       }
-      .cta-button::after {
+      .cta-button::after, .submit-btn::after {
         content: "";
         position: absolute;
         top: 0;
@@ -219,34 +222,31 @@
         transition: 0.5s;
         z-index: -1;
       }
-      .cta-button:hover::after {
+      .cta-button:hover::after, .submit-btn:hover::after {
         left: 100%;
       }
-      .cta-button:hover {
+      .cta-button:hover, .submit-btn:hover {
         background: #5dc6ff;
         transform: translateY(-4px) scale(1.02);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 15px 45px rgba(60, 174, 254, 0.3);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 15px 50px rgba(60, 174, 254, 0.4);
       }
-      .cta-button i {
+      .cta-button i, .submit-btn i {
         font-size: 1.25rem;
         color: #FFFFFF;
         transition: transform 0.3s ease;
       }
-      .cta-button:hover i {
+      .cta-button:hover i, .submit-btn:hover i {
         transform: translateX(4px);
-      }
-      .hero .cta-button {
-        color: #FFFFFF;
       }
 
       /* Sections General */
       section {
-        padding: 80px 0;
+        padding: 30px 0;
       }
       .section-header {
         text-align: center;
         max-width: 1300px;
-        margin: 0 auto 80px;
+        margin: 0 auto 40px;
         padding: 0 20px;
       }
       .section-title {
@@ -255,7 +255,7 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: -0.03em;
-        margin-bottom: 25px;
+        margin-bottom: 15px;
         line-height: 1.1;
         text-wrap: balance;
         color: #FFFFFF;
@@ -303,7 +303,7 @@
       .form-container h2 {
         color: #FFFFFF;
         text-align: center;
-        margin-bottom: 15px;
+        margin-bottom: 40px;
         font-size: 2.2rem;
         background: linear-gradient(135deg, #FFFFFF 0%, #3CAEFE 100%);
         -webkit-background-clip: text;
@@ -334,6 +334,18 @@
         color: #3CAEFE;
       }
 
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        margin-bottom: 10px;
+      }
+      .form-group {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+
       .form-group.full-width { grid-column: 1 / -1; }
       .form-group label {
         display: block;
@@ -347,14 +359,14 @@
       .form-group input,
       .form-group select {
         width: 100%;
-        padding: 14px;
+        padding: 15px;
         border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 4px;
-        background: #040A18;
+        border-radius: 6px;
+        background: rgba(4, 10, 24, 0.5);
         color: #FFFFFF;
         font-size: 0.95rem;
         font-family: "Montserrat", sans-serif;
-        font-weight: 400;
+        font-weight: 500;
         transition: all 0.3s ease;
       }
       .form-group select {
@@ -366,8 +378,15 @@
         background-size: 18px;
         padding-right: 45px;
       }
-      .form-group input::placeholder {
-        color: rgba(255,255,255,0.3);
+      .form-group input::placeholder,
+      .form-group select:invalid,
+      .form-group select option[value=""] {
+        color: rgba(255,255,255,0.4);
+      }
+      
+      .form-group select option {
+        background: #040A18;
+        color: #FFFFFF;
       }
       .form-group input:focus,
       .form-group select:focus {
@@ -375,27 +394,7 @@
         border-color: #3CAEFE;
         background: #071128;
       }
-      .submit-btn {
-        width: 100%;
-        background: #3CAEFE;
-        color: #FFFFFF;
-        padding: 22px;
-        border: none;
-        border-radius: 8px;
-        font-size: 1.25rem;
-        font-family: 'Oswald', sans-serif;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        margin-top: 25px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(60, 174, 254, 0.15);
-      }
+      /* Submit btn handled by grouped styles */
       .submit-btn:hover {
         background: #5dc6ff;
         transform: translateY(-4px);
@@ -425,7 +424,6 @@
         align-items: center;
         text-align: center;
         border: 1px solid rgba(255, 255, 255, 0.12);
-        border-top: 4px solid #ef4444;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
         transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
       }
@@ -648,7 +646,7 @@
       footer {
         background: linear-gradient(to bottom, #010413, #020617);
         color: #FFFFFF;
-        padding: 100px 0 50px;
+        padding: 50px 0 30px;
         border-top: 1px solid rgba(60, 174, 254, 0.1);
         position: relative;
       }
@@ -666,8 +664,8 @@
       .footer-grid {
         display: grid;
         grid-template-columns: 1.5fr 1fr 1.5fr;
-        gap: 60px;
-        margin-bottom: 80px;
+        gap: 40px;
+        margin-bottom: 40px;
       }
       .footer-brand .footer-logo {
         max-height: 80px;
@@ -754,7 +752,7 @@
       }
 
       /* Image Carousel Update */
-      .carousel-container { max-width: 1240px; margin: 40px auto; position: relative; }
+      .carousel-container { max-width: 1240px; margin: 20px auto 0; position: relative; }
       .carousel-viewport { 
         border-radius: 12px; 
         overflow: hidden; 
@@ -784,7 +782,7 @@
         display: flex; 
         justify-content: center; 
         gap: 12px; 
-        margin-top: 30px; 
+        margin-top: 20px; 
       }
       .carousel-dot {
         width: 12px;
@@ -805,15 +803,15 @@
       /* MASTER MOBILE AUDIT & CORRECTION */
       @media (max-width: 768px) {
         .mobile-br { display: block; }
-        section { padding: 50px 0; }
-        .section-header { margin-bottom: 50px; }
+        section { padding: 40px 0; }
+        .section-header { margin-bottom: 30px; }
         .section-title { font-size: 2.2rem; }
         
         .hero { min-height: 80vh; padding: 60px 0 60px; align-items: flex-start; }
         .hero-content { min-height: auto; padding: 0 20px; }
-        .hero-logo { max-height: 100px; margin-bottom: 25px; }
-        .hero h1 { font-size: 2.3rem; margin-bottom: 25px; letter-spacing: -0.03em; }
-        .hero p { font-size: 1.1rem; margin-bottom: 35px; }
+        .hero-logo { max-height: 100px; margin-bottom: 15px; }
+        .hero h1 { font-size: 2.3rem; margin-bottom: 15px; letter-spacing: -0.03em; }
+        .hero p { font-size: 1.1rem; margin-bottom: 25px; }
 
         .form-container { margin: 0 20px; width: calc(100% - 40px); padding: 40px 25px; margin-top: -60px; }
         .form-grid { grid-template-columns: 1fr; gap: 15px; }
@@ -824,12 +822,12 @@
         .services-grid { grid-template-columns: 1fr; gap: 15px; }
         .stat, .benefit-card { margin: 0 auto; width: 100%; max-width: 450px; }
         
-        .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 35px; }
-        .footer-brand { grid-column: 1 / -1; text-align: center; padding-bottom: 30px; }
+        .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 20px; }
+        .footer-brand { grid-column: 1 / -1; text-align: center; padding-bottom: 15px; }
         .footer-brand .footer-logo { margin: 0 auto 20px; }
-        .footer-links { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; }
+        .footer-links { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
         .footer-links ul { display: flex; flex-direction: column; align-items: center; }
-        .footer-contact { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; text-align: center; }
+        .footer-contact { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; text-align: center; }
         .footer-contact-info { display: inline-flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 20px; }
         .footer-contact-item { margin-bottom: 0; }
         
@@ -859,7 +857,7 @@
       @media (max-width: 350px) {
         .hero h1 { font-size: 1.7rem; }
         .hero p { font-size: 0.95rem; }
-        .cta-button { padding: 14px 20px; font-size: 0.95rem; }
+        .cta-button, .submit-btn { padding: 14px 20px; font-size: 0.95rem; }
         section { padding: 50px 0; }
       }
 
@@ -909,63 +907,45 @@
           <div class="form-grid">
             <div class="form-group full-width">
               <label>Nome Completo</label>
-              <input
-                type="text"
-                name="nome"
-                placeholder="Digite seu nome"
-                required
-              />
+              <input type="text" name="nome" placeholder="Digite seu nome completo" required />
             </div>
 
             <div class="form-group">
-              <label>Telefone / WhatsApp</label>
-              <input
-                type="tel"
-                name="tel"
-                placeholder="(27) 90000-0000"
-                required
-              />
+              <label>WhatsApp</label>
+              <input type="tel" name="tel" placeholder="(27) 90000-0000" required />
             </div>
 
             <div class="form-group">
-              <label>Veículo (Modelo e Ano)</label>
-              <input
-                type="text"
-                name="veiculo"
-                placeholder="Ex: Corolla 2020"
-                required
-              />
+              <label>Veículo / Ano</label>
+              <input type="text" name="veiculo" placeholder="Modelo e ano do carro" required />
             </div>
 
-            <div class="form-group select-group">
-              <label>Quantidade de pneus</label>
+            <div class="form-group">
+              <label>Quantidade de Pneus</label>
               <select name="qtd" required>
-                <option value="" disabled selected>Selecione...</option>
+                <option value="" disabled selected>Selecione a quantidade...</option>
                 <option value="2 pneus">2 pneus</option>
                 <option value="4 pneus">4 pneus</option>
                 <option value="Ainda não sei">Ainda não sei</option>
               </select>
             </div>
 
-            <div class="form-group select-group">
-              <label>Precisa de instalação?</label>
+            <div class="form-group">
+              <label>Precisa de Instalação?</label>
               <select name="instalacao" required>
-                <option value="" disabled selected>Selecione...</option>
+                <option value="" disabled selected>Selecione uma opção...</option>
                 <option value="Sim">Sim</option>
                 <option value="Não">Não</option>
               </select>
             </div>
 
-            <div class="form-group full-width select-group">
-              <label>Quando pretende trocar os pneus?</label>
+            <div class="form-group full-width">
+              <label>Urgência da Troca</label>
               <select name="quando" required>
-                <option value="" disabled selected>Selecione o prazo...</option>
+                <option value="" disabled selected>Selecione a urgência...</option>
                 <option value="Urgente">Urgente</option>
                 <option value="Essa semana">Essa semana</option>
-                <option value="Esse mês">Esse mês</option>
-                <option value="Só pesquisando preço">
-                  Só pesquisando preço
-                </option>
+                <option value="Esse mês">Apenas pesquisando</option>
               </select>
             </div>
           </div>
@@ -1043,9 +1023,9 @@
             </a>
           </div>
           
-          <div class="stat" style="border-top-color: #3CAEFE;">
+          <div class="stat">
             <div class="stat-number" style="color: #3CAEFE;">
-              <i class="fas fa-exclamation-triangle"></i>
+              <i class="ph-bold ph-shield-warning"></i>
             </div>
             <p class="stat-text">
               Pneus carecas reduzem drasticamente a aderência, aumentando o risco de aquaplanagem e perda total do controle.
@@ -1096,11 +1076,11 @@
             <h3>Garantia de serviço</h3>
           </div>
           <div class="benefit-card">
-            <i class="ph-light ph-handshake"></i>
+            <i class="ph-light ph-tag"></i>
             <h3>Melhor preço do mercado</h3>
           </div>
         </div>
-        <div style="text-align: center; margin-top: 50px;">
+        <div style="text-align: center; margin-top: 50px; display: flex; justify-content: center;">
           <a href="#orcamento" class="cta-button">SOLICITAR ORÇAMENTO</a>
         </div>
         <p style="text-align: center; margin-top: 30px; font-weight: 600; font-size: 1.2rem;">
@@ -1157,8 +1137,8 @@
                 <i class="fas fa-check-circle"></i> <span>Empresa referência no mercado capixaba</span>
               </li>
             </ul>
-            <div style="margin-top: 30px;">
-              <a href="#orcamento" class="cta-button" style="width: 100%; text-align: center;">SOLICITAR ORÇAMENTO</a>
+            <div style="margin-top: 30px; display: flex; justify-content: center;">
+              <a href="#orcamento" class="cta-button">SOLICITAR ORÇAMENTO</a>
             </div>
           </div>
         </div>
@@ -1185,7 +1165,7 @@
               <div class="commercial-list-item"><i class="fas fa-check"></i> Agendamento de serviço</div>
             </div>
 
-            <a href="#orcamento" class="cta-button" style="display: inline-flex; margin-top: 20px;">SOLICITAR ORÇAMENTO</a>
+            <a href="#orcamento" class="cta-button" style="margin-top: 20px;">SOLICITAR ORÇAMENTO</a>
           </div>
           
           <div style="flex: 1 1 400px;">
@@ -1198,8 +1178,10 @@
     <!-- Marcas (Marquee CSS) -->
     <section class=" ">
       <div class="container">
-        <h2 class="section-title">Trabalhamos com as principais marcas do mercado</h2>
-        <p class="section-subtitle">Qualidade garantida para todos os tipos de veículos.</p>
+        <div class="section-header">
+          <h2 class="section-title">TRABALHAMOS COM AS <span class="highlight">PRINCIPAIS MARCAS</span></h2>
+          <p class="section-subtitle">Pneus de alta performance para todos os tipos de veículos e terrenos.</p>
+        </div>
         <div class="brands-marquee">
           <div class="marquee-content">
             <span class="brand-item">Michelin</span>
@@ -1244,7 +1226,7 @@
           <div class="service-badge">Serviços automotivos em geral</div>
         </div>
 
-        <div style="text-align: center; margin-bottom: 80px;">
+        <div style="text-align: center; margin-bottom: 80px; display: flex; justify-content: center;">
           <a href="#orcamento" class="cta-button">SOLICITAR ORÇAMENTO</a>
         </div>
 
@@ -1286,17 +1268,7 @@
               <a href="#" style="color: rgba(255,255,255,0.6); font-size: 1.2rem; transition: 0.3s;"><i class="fab fa-whatsapp"></i></a>
             </div>
           </div>
-          
-          <div class="footer-links">
-            <h4>Navegação</h4>
-            <ul>
-              <li><a href="#orcamento">Orçamento Online</a></li>
-              <li><a href="#">Marcas Parceiras</a></li>
-              <li><a href="#">Nossos Serviços</a></li>
-              <li><a href="#">Dúvidas Frequentes</a></li>
-            </ul>
-          </div>
-          
+
           <div class="footer-contact">
             <h4>Fale Conosco</h4>
             <div class="footer-contact-info">
