@@ -91,13 +91,13 @@
       /* Hero */
       .hero {
         position: relative;
-        min-height: 100vh;
-        padding: 40px 15px 160px;
+        min-height: 85vh;
+        padding: 80px 15px 60px;
         background-image: url("Hero-photo.png");
         background-size: cover;
         background-position: center;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         overflow: hidden;
         border-bottom: none;
       }
@@ -118,8 +118,8 @@
         background: radial-gradient(circle at center, rgba(60, 174, 254, 0.08) 0%, transparent 70%);
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        min-height: 75vh;
+        justify-content: flex-start;
+        min-height: auto;
       }      .hero h1 {
         font-size: clamp(2.5rem, 5vw, 4rem);
         margin-bottom: 45px;
@@ -167,6 +167,20 @@
       @keyframes heroScroll {
         from { background-position: 0 50%; }
         to { background-position: 100% 50%; }
+      }
+
+      @keyframes blink-arrow {
+        0%, 100% { opacity: 0.3; transform: translateY(0); }
+        50% { opacity: 0.7; transform: translateY(8px); }
+      }
+
+      .scroll-arrow {
+        margin-top: 25px;
+        font-size: 1.2rem;
+        color: rgba(60, 174, 254, 0.7);
+        animation: blink-arrow 3s infinite ease-in-out;
+        cursor: pointer;
+        display: inline-block;
       }
 
       /* Botões */
@@ -227,7 +241,7 @@
 
       /* Sections General */
       section {
-        padding: 120px 0;
+        padding: 80px 0;
       }
       .section-header {
         text-align: center;
@@ -270,7 +284,7 @@
         border-radius: 16px;
         padding: 45px 50px;
         max-width: 800px;
-        margin: -140px auto 0;
+        margin: -100px auto 0;
         box-shadow: 
           0 10px 30px rgba(0, 0, 0, 0.3),
           0 30px 100px rgba(0, 0, 0, 0.5);
@@ -278,6 +292,13 @@
         position: relative;
         border: 1px solid rgba(255,255,255,0.08);
         border-top: 4px solid #3CAEFE;
+        transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transform: translateY(20px);
+        opacity: 0.8;
+      }
+      .form-container.reveal {
+        transform: translateY(0);
+        opacity: 1;
       }
       .form-container h2 {
         color: #FFFFFF;
@@ -784,12 +805,12 @@
       /* MASTER MOBILE AUDIT & CORRECTION */
       @media (max-width: 768px) {
         .mobile-br { display: block; }
-        section { padding: 80px 0; }
+        section { padding: 50px 0; }
         .section-header { margin-bottom: 50px; }
         .section-title { font-size: 2.2rem; }
         
-        .hero { min-height: 100vh; padding: 20px 0 100px; }
-        .hero-content { min-height: 65vh; padding: 0 20px; }
+        .hero { min-height: 80vh; padding: 60px 0 60px; align-items: flex-start; }
+        .hero-content { min-height: auto; padding: 0 20px; }
         .hero-logo { max-height: 100px; margin-bottom: 25px; }
         .hero h1 { font-size: 2.3rem; margin-bottom: 25px; letter-spacing: -0.03em; }
         .hero p { font-size: 1.1rem; margin-bottom: 35px; }
@@ -824,8 +845,8 @@
         .section-header { margin-bottom: 40px; }
         .section-title { font-size: 1.8rem; }
         
-        .hero { padding: 15px 0 80px; }
-        .hero-content { min-height: 60vh; }
+        .hero { padding: 40px 0 80px; align-items: flex-start; }
+        .hero-content { min-height: auto; }
         .hero-logo { max-height: 85px; margin-bottom: 25px; }
         .hero h1 { font-size: 2.1rem; margin-bottom: 20px; }
         .hero p { font-size: 1rem; margin-bottom: 30px; }
@@ -869,6 +890,10 @@
           <div style="margin-top: 20px;">
             <a href="#orcamento" class="cta-button">
               <i class="fab fa-whatsapp"></i> GARANTA O SEU AGORA
+            </a>
+            <br>
+            <a href="#orcamento" class="scroll-arrow">
+              <i class="fas fa-chevron-down"></i>
             </a>
           </div>
         </div>
@@ -1455,6 +1480,17 @@
       // Pause on hover
       track.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
       track.addEventListener('mouseleave', () => resetAutoplay());
+
+      // Scroll Reveal for Form
+      const observerForm = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            document.querySelector('.form-container').classList.add('reveal');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      observerForm.observe(document.querySelector('.form-section'));
     </script>
   
 </body>
