@@ -1,0 +1,1241 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thiago Pneus - O Melhor Preço do ES</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #020617;
+        background-image: 
+          radial-gradient(circle at 20% 20%, rgba(30, 64, 175, 0.15) 0%, transparent 40%),
+          radial-gradient(circle at 80% 80%, rgba(60, 174, 254, 0.1) 0%, transparent 40%),
+          radial-gradient(circle at 50% 50%, rgba(10, 20, 48, 0.5) 0%, #020617 100%);
+        background-attachment: fixed;
+        color: #FFFFFF;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      h1, h2, h3, h4 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        color: #FFFFFF;
+        letter-spacing: -0.5px;
+      }
+      .price, .cta-button {
+        font-family: "Oswald", sans-serif;
+        font-weight: 600;
+      }
+      p {
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Transitions & Shapes (Institutional Premium) */
+      .section-blue { 
+        background-color: #020617; 
+        color: #FFFFFF; 
+        position: relative; 
+      }
+      .section-dark-blue { 
+        background: #020617;
+        color: #FFFFFF; 
+        position: relative;
+      }
+      
+      .gradient-transition {
+        display: none;
+      }
+
+      /* Top Banner */
+      .top-banner {
+        background: #111827;
+        color: #3CAEFE;
+        text-align: center;
+        padding: 10px 0;
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 10;
+        border-bottom: 1px solid rgba(60, 174, 254, 0.1);
+      }
+
+      /* Hero */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        padding: 120px 0 200px;
+        background-image: url("Hero-photo.png");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        border-bottom: none;
+        mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(2, 6, 23, 0) 0%, #020617 100%);
+        z-index: 1;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 1000px;
+        text-align: center;
+        margin: 0 auto;
+      }
+      .hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 25px;
+        line-height: 1.2;
+      }
+      .hero h1 .highlight {
+        color: #3CAEFE;
+        display: inline;
+        text-shadow: 0 0 20px rgba(60, 174, 254, 0.3);
+      }
+      .hero h1 .sub-highlight {
+        color: #FFFFFF;
+        background: linear-gradient(90deg, #3CAEFE 0%, #1E40AF 100%);
+        padding: 4px 18px;
+        border-radius: 6px;
+        display: inline-block;
+        margin-top: 8px;
+        box-shadow: 0 4px 15px rgba(60, 174, 254, 0.2);
+      }
+      .hero p {
+        font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+        margin-bottom: 40px;
+        color: rgba(255,255,255,0.9);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 500;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      /* Botões */
+      .cta-button {
+        position: relative;
+        background: #3CAEFE;
+        color: #020617;
+        padding: 20px 50px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.15rem;
+        font-family: "Oswald", sans-serif;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        z-index: 1;
+        box-shadow: 0 10px 30px rgba(60, 174, 254, 0.2);
+      }
+      .cta-button:hover {
+        background: #5dc6ff;
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(60, 174, 254, 0.3);
+      }
+      .cta-button i {
+        font-size: 1.25rem;
+        color: #020617;
+      }
+
+      /* Sections General */
+      section {
+        padding: 100px 0;
+      }
+      .section-title {
+        font-size: clamp(2rem, 3.5vw, 2.8rem);
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: 700;
+      }
+      .section-subtitle {
+        text-align: center;
+        font-size: clamp(1rem, 1.2vw, 1.15rem);
+        margin-bottom: 60px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 400;
+        color: rgba(255,255,255,0.7);
+      }
+
+      /* Form Section */
+      .form-section {
+        position: relative;
+        margin-top: 0;
+        z-index: 20;
+        padding-top: 0;
+        background: transparent;
+      }
+      .form-container {
+        background: rgba(11, 20, 38, 0.7);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 12px;
+        padding: 35px 45px;
+        max-width: 750px;
+        margin: -120px auto 0;
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+        color: #FFFFFF;
+        position: relative;
+        border: 1px solid rgba(255,255,255,0.1);
+        border-top: 4px solid #3CAEFE;
+      }
+      .form-container h2 {
+        color: #FFFFFF;
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 2.2rem;
+        background: linear-gradient(135deg, #FFFFFF 0%, #3CAEFE 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .form-container > p {
+        text-align: center;
+        margin-bottom: 40px;
+        color: rgba(255,255,255,0.7);
+        font-weight: 400;
+        font-size: 1rem;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .form-group.full-width { grid-column: 1 / -1; }
+      .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: rgba(255,255,255,0.8);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 14px;
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 4px;
+        background: #040A18;
+        color: #FFFFFF;
+        font-size: 0.95rem;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        transition: all 0.3s ease;
+      }
+      .form-group select {
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%233CAEFE' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 15px center;
+        background-size: 18px;
+        padding-right: 45px;
+      }
+      .form-group input::placeholder {
+        color: rgba(255,255,255,0.3);
+      }
+      .form-group input:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: #3CAEFE;
+        background: #071128;
+      }
+      .submit-btn {
+        width: 100%;
+        background: #3CAEFE;
+        color: #020617;
+        padding: 22px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 10px 30px rgba(60, 174, 254, 0.2);
+      }
+      .submit-btn:hover {
+        background: #5dc6ff;
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(60, 174, 254, 0.3);
+      }
+
+      /* Utilities */
+      .highlight { color: #3CAEFE; }
+
+      /* PRF Stats */
+      .stats {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+      .stat {
+        flex: 1;
+        min-width: 280px;
+        background: rgba(7, 17, 40, 0.4);
+        backdrop-filter: blur(8px);
+        padding: 40px 30px;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border: 1px solid rgba(255,255,255,0.05);
+        border-top: 2px solid rgba(60, 174, 254, 0.3);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease;
+      }
+      .stat:hover {
+        transform: translateY(-5px);
+        border-top-color: #3CAEFE;
+      }
+      .stat-number {
+        font-size: 4rem;
+        color: #3CAEFE;
+        font-weight: 400;
+        line-height: 1;
+        padding: 10px 0;
+      }
+      .stat-text {
+        font-size: 1.1rem;
+        color: #FFFFFF;
+        font-weight: 600;
+      }
+
+      /* Benefits */
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+      }
+      .benefit-card {
+        background: rgba(7, 17, 40, 0.4);
+        backdrop-filter: blur(8px);
+        border-radius: 12px;
+        padding: 35px 30px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        border: 1px solid rgba(255,255,255,0.05);
+        border-top: 2px solid rgba(60, 174, 254, 0.1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+      }
+      .benefit-card:hover {
+        transform: translateY(-5px);
+        border-top-color: #3CAEFE;
+        background: rgba(7, 17, 40, 0.6);
+      }
+      .benefit-card i {
+        font-size: 3rem;
+        color: #3CAEFE;
+        filter: drop-shadow(0 0 10px rgba(60, 174, 254, 0.2));
+      }
+      .benefit-card h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #FFFFFF;
+      }
+
+      /* Risks & Solutions */
+      .comparison-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+      .risks-list { list-style: none; }
+      .risks-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        font-size: 1.05rem;
+        color: rgba(255,255,255,0.8);
+        background: rgba(0,0,0,0.15);
+        padding: 15px 20px;
+        border-radius: 4px;
+        font-weight: 500;
+        border-left: 2px solid #3CAEFE;
+      }
+      .risks-list i {
+        color: #3CAEFE;
+        font-size: 1.2rem;
+        margin-right: 15px;
+      }
+      .solution-box {
+        background: linear-gradient(135deg, #071128 0%, #040A18 100%);
+        padding: 50px;
+        border-radius: 8px;
+        color: #FFFFFF;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        border: 1px solid rgba(255,255,255,0.05);
+        border-left: 4px solid #3CAEFE;
+      }
+      .solution-box h2 { color: #FFFFFF; font-size: 2rem; font-family:"Montserrat",sans-serif; text-transform:none; font-weight: 600;}
+      .solution-box p { font-weight: 400; color: rgba(255,255,255,0.7); font-size: 1.05rem; }
+      .check-list { list-style: none; margin-top: 25px; }
+      .check-list li {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        font-size: 1.05rem;
+        font-weight: 500;
+        line-height: 1.4;
+        color: #FFFFFF;
+      }
+      .check-list i {
+        color: #3CAEFE;
+        font-size: 1.2rem;
+        margin-right: 12px;
+      }
+      .solution-box .highlight {
+        color: #3CAEFE;
+      }
+
+      /* Commercial Team */
+      .commercial-content { max-width: 900px; margin: 0 auto; text-align: left; }
+      .commercial-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+        margin: 35px 0;
+      }
+      .commercial-list-item {
+        background: #060E23;
+        padding: 14px 18px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: rgba(255,255,255,0.9);
+        border: 1px solid rgba(255,255,255,0.05);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      }
+      .commercial-list-item i {
+        color: #3CAEFE;
+        font-size: 1.1rem;
+      }
+
+      /* Marcas Marquee */
+      .brands-marquee {
+        background: transparent;
+        padding: 40px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        border: none;
+        margin-top: 40px;
+        -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+        mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+      }
+      .marquee-content {
+        display: inline-block;
+        animation: marquee 30s linear infinite;
+      }
+      .brand-item {
+        margin: 0 50px;
+        font-size: 1.8rem;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.15);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        transition: color 0.3s ease;
+        display: inline-block;
+      }
+      .brand-item:hover {
+        color: rgba(223, 166, 0, 0.6);
+      }
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }  /* FAQ */
+      .faq-grid { max-width: 850px; margin: 0 auto; }
+      .faq-item {
+        background: rgba(6, 14, 35, 0.6);
+        border: 1px solid rgba(255,255,255,0.05);
+        border-radius: 8px;
+        margin-bottom: 12px;
+        transition: all 0.3s ease;
+      }
+      .faq-item.active {
+        background: rgba(7, 17, 40, 0.9);
+        border-color: #3CAEFE;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      }
+      .faq-question {
+        padding: 24px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: rgba(255,255,255,0.9);
+        font-family: 'Montserrat', sans-serif;
+      }
+      .faq-item.active .faq-question { color: #3CAEFE; }
+      .faq-answer {
+        padding: 0 24px 24px;
+        color: rgba(255,255,255,0.7);
+        display: none;
+        line-height: 1.6;
+        font-weight: 400;
+        font-size: 1rem;
+      }
+      .faq-item.active .faq-answer { display: block; }
+
+      /* Footer */
+      footer {
+        background: #040A18;
+        color: #FFFFFF;
+        padding: 80px 0 40px;
+        border-top: 1px solid rgba(255,255,255,0.05);
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1.5fr;
+        gap: 60px;
+        margin-bottom: 60px;
+      }
+      .footer-brand h4 { font-size: 1.8rem; margin-bottom: 15px; color: #3CAEFE; font-family:"Oswald",sans-serif; }
+      .footer-brand p { font-weight: 400; color: rgba(255,255,255,0.6); font-size: 1rem;}
+      .footer-links h4, .footer-contact h4 { margin-bottom: 25px; color: #FFFFFF; font-size: 1.2rem; font-weight:600;}
+      .footer-links ul { list-style: none; }
+      .footer-links li { margin-bottom: 12px; }
+      .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-weight: 400; transition: 0.2s; font-size:1rem;}
+      .footer-links a:hover { color: #3CAEFE; }
+      .footer-contact-item { display: flex; gap: 15px; margin-bottom: 20px; }
+      .footer-contact-item i { color: #3CAEFE; font-size: 1.3rem; padding-top: 2px; }
+      .footer-contact-item p { font-weight: 600; color: #FFFFFF; margin-bottom: 4px; font-size: 0.9rem;}
+      .footer-contact-item span { font-weight: 400; color: rgba(255,255,255,0.6); font-size: 0.95rem; }
+      .copyright {
+        text-align: center;
+        padding-top: 25px;
+        border-top: 2px solid rgba(255,255,255,0.1);
+        font-weight: 600;
+        color: rgba(255,255,255,0.5);
+      }
+
+      /* Services Grid Update */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 1100px;
+        margin: 60px auto 80px;
+      }
+      .service-badge {
+        background: linear-gradient(135deg, #071128 0%, #040A18 100%);
+        color: rgba(255,255,255,0.9);
+        border-radius: 6px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 1.05rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 70px;
+        text-align: center;
+        border: 1px solid rgba(255,255,255,0.05);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      }
+
+      /* Image Carousel Update */
+      .carousel-container { max-width: 1240px; margin: 40px auto; position: relative; }
+      .carousel-viewport { border-radius: 8px; overflow: hidden; border: 4px solid #142981; }
+      .carousel-track { display: flex; transition: transform 0.6s ease; }
+      .carousel-slide { min-width: 100%; border-right: 4px solid #142981;}
+      @media(min-width:768px){ .carousel-slide{min-width:50%;} }
+      @media(min-width:1100px){ .carousel-slide{min-width:33.333%;} }
+      .carousel-slide img { width: 100%; height: 100%; object-fit: cover; }
+      .carousel-btn { display: none; }
+      .carousel-nav { display: flex; justify-content: center; gap: 10px; margin-top: 25px; }
+      .carousel-dot { width: 14px; height: 14px; border-radius: 0; background: #0B1547; border: 2px solid #142981; cursor: pointer; }
+      .carousel-dot.active { background: #3CAEFE; border-color: #111;}
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .form-grid { grid-template-columns: 1fr; }
+        .comparison-grid { grid-template-columns: 1fr; gap: 40px; }
+        .services-grid { grid-template-columns: 1fr; }
+        .footer-grid { grid-template-columns: 1fr; }
+        .hero { 
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          padding: 80px 0;
+        }
+        .form-container {
+          margin-top: 0;
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+        .carousel-btn.prev { left: 5px; }
+        .carousel-btn.next { right: 5px; }
+        section { padding: 60px 0; }
+        .hero h1 { font-size: 2.5rem; }
+      }
+
+      @media (max-width: 480px) {
+        .top-banner {
+          font-size: 0.75rem;
+          padding: 8px 10px;
+        }
+        .hero { 
+          min-height: 100vh;
+          padding: 60px 0;
+        }
+        .hero h1 { font-size: 2rem; line-height: 1.3; }
+        .hero h1 .sub-highlight {
+          display: inline;
+          padding: 2px 10px;
+          margin-top: 0;
+          box-decoration-break: clone;
+          -webkit-box-decoration-break: clone;
+        }
+        .hero p {
+          font-size: 0.95rem;
+          margin-bottom: 30px;
+          line-height: 1.5;
+        }
+        .cta-button {
+          font-size: 1rem;
+          padding: 16px 20px;
+          width: 100%;
+        }
+        .form-container {
+          padding: 35px 25px;
+          margin-top: 20px;
+          margin-left: 15px;
+          margin-right: 15px;
+        }
+        .form-container h2 {
+          font-size: 1.6rem;
+        }
+        .stat-number {
+          font-size: 3rem;
+          color: #3CAEFE;
+        }
+        .section-title {
+          font-size: 1.8rem;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <!-- Faixa Topo -->
+    <div class="top-banner">
+      <i class="fas fa-clock"></i> Válido até o dia 30/04 (Preços anúncios do
+      mercado)
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero section-dark">
+      <div class="container">
+        <div class="hero-content">
+          <h1>
+            O&nbsp;<span class="highlight">MELHOR PREÇO</span> DE PNEUS DA <span class="sub-highlight">ÚLTIMA DÉCADA</span> NO ESPÍRITO SANTO.
+          </h1>
+          <p>
+            A Thiago Pneus é a maior referência no Espírito Santo quando o assunto é pneus, são mais de XX anos de mercado, serviços automotivos e preço baixo.
+          </p>
+          <div style="margin-top: 30px;">
+            <a href="#orcamento" class="cta-button">
+              <i class="fab fa-whatsapp"></i> GARANTA O SEU AGORA
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Formulário Glassmorphism -->
+    <section id="orcamento" class="form-section ">
+      <div class="form-container">
+        <h2>Solicitar Orçamento</h2>
+        <p>
+          Nosso atendimento vai te enviar o modelo para o seu carro e te ajudar
+          a escolher o pneu ideal.
+        </p>
+
+        <form id="contactForm">
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label>Nome Completo</label>
+              <input
+                type="text"
+                name="nome"
+                placeholder="Digite seu nome"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Telefone / WhatsApp</label>
+              <input
+                type="tel"
+                name="tel"
+                placeholder="(27) 90000-0000"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Veículo (Modelo e Ano)</label>
+              <input
+                type="text"
+                name="veiculo"
+                placeholder="Ex: Corolla 2020"
+                required
+              />
+            </div>
+
+            <div class="form-group select-group">
+              <label>Quantidade de pneus</label>
+              <select name="qtd" required>
+                <option value="" disabled selected>Selecione...</option>
+                <option value="2 pneus">2 pneus</option>
+                <option value="4 pneus">4 pneus</option>
+                <option value="Ainda não sei">Ainda não sei</option>
+              </select>
+            </div>
+
+            <div class="form-group select-group">
+              <label>Precisa de instalação?</label>
+              <select name="instalacao" required>
+                <option value="" disabled selected>Selecione...</option>
+                <option value="Sim">Sim</option>
+                <option value="Não">Não</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width select-group">
+              <label>Quando pretende trocar os pneus?</label>
+              <select name="quando" required>
+                <option value="" disabled selected>Selecione o prazo...</option>
+                <option value="Urgente">Urgente</option>
+                <option value="Essa semana">Essa semana</option>
+                <option value="Esse mês">Esse mês</option>
+                <option value="Só pesquisando preço">
+                  Só pesquisando preço
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <i class="fab fa-whatsapp"></i> Receber orçamento
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Nosso Espaço (Carousel) - Relocated and Enhanced -->
+    <section class="carousel-section ">
+      <div class="container">
+        <h2 class="section-title">NOSSO <span class="highlight">ESPAÇO</span> & ESTRUTURA</h2>
+        <p class="section-subtitle">Conheça nossa oficina e a tecnologia que usamos para garantir sua segurança em cada detalhe.</p>
+        
+        <div class="carousel-container">
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="carouselTrack">
+              <div class="carousel-slide"><img src="imagens/1.png" alt="Espaço Thiago Pneus 1"></div>
+              <div class="carousel-slide"><img src="imagens/2.png" alt="Espaço Thiago Pneus 2"></div>
+              <div class="carousel-slide"><img src="imagens/3.png" alt="Espaço Thiago Pneus 3"></div>
+              <div class="carousel-slide"><img src="imagens/4.png" alt="Espaço Thiago Pneus 4"></div>
+              <div class="carousel-slide"><img src="imagens/5.png" alt="Espaço Thiago Pneus 5"></div>
+              <div class="carousel-slide"><img src="imagens/6.png" alt="Espaço Thiago Pneus 6"></div>
+            </div>
+          </div>
+          
+          <div class="carousel-nav" id="carouselNav">
+            <!-- Dots generated by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estatísticas PRF -->
+    <section class="stats-section ">
+      <div class="container">
+        <h2 class="section-title">SEGURANÇA EM <span class="highlight">PRIMEIRO LUGAR</span></h2>
+        <p class="section-subtitle">
+          Segundo dados da Polícia Rodoviária Federal, problemas nos pneus estão entre as principais causas de acidentes nas rodovias brasileiras, por desgaste excessivo e falta de manutenção.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-number">799</div>
+            <p class="stat-text">
+              Acidentes em rodovias federais causados por pneus em mau estado, gerando feridos e mortes evitáveis.
+            </p>
+            <a href="https://www.gov.br/prf/pt-br/acesso-a-informacao/dados-abertos/diest-arquivos/copy_of_anuario-2019_final.html?utm_source=chatgpt.com" target="_blank" style="color: #3CAEFE; font-size: 0.85rem; margin-top: 15px; text-decoration: none; font-weight: 600; opacity: 0.8;">
+              <i class="fas fa-external-link-alt" style="margin-right: 5px; font-size: 0.7rem;"></i> Fonte: Anuário PRF
+            </a>
+          </div>
+          
+          <div class="stat" style="border-top-color: #3CAEFE; background: rgba(17, 24, 39, 0.6);">
+            <div class="stat-number" style="color: #3CAEFE;">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <p class="stat-text">
+              Pneus carecas reduzem drasticamente a aderência, aumentando o risco de aquaplanagem e perda total do controle.
+            </p>
+            <span style="color: #3CAEFE; font-size: 0.85rem; margin-top: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Risco Iminente</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class=" ">
+      <div class="container">
+        <h2 class="section-title">POR QUE <span class="highlight">TODO ESTADO</span> DO ES COMPRA COM A GENTE?</h2>
+        <p class="section-subtitle">
+          Porque diferente da concorrência não vendemos só pneus. Entregamos segurança, economia e confiança no momento em que você sair da nossa Loja.
+        </p>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <i class="ph-light ph-wrench"></i>
+            <h3>Montagem profissional</h3>
+          </div>
+          <div class="benefit-card">
+            <i class="ph-light ph-crosshair"></i>
+            <h3>Alinhamento e balanceamento</h3>
+          </div>
+          <div class="benefit-card">
+            <i class="ph-light ph-user-gear"></i>
+            <h3>Equipe especializada</h3>
+          </div>
+          <div class="benefit-card">
+            <i class="ph-light ph-gear"></i>
+            <h3>Equipamentos modernos</h3>
+          </div>
+          <div class="benefit-card">
+            <i class="ph-light ph-timer"></i>
+            <h3>Atendimento rápido</h3>
+          </div>
+          <div class="benefit-card">
+            <i class="ph-light ph-storefront"></i>
+            <h3>Loja física grande e estruturada</h3>
+          </div>
+          <div class="benefit-card">
+            <i class="ph-light ph-seal-check"></i>
+            <h3>Garantia de serviço</h3>
+          </div>
+          <div class="benefit-card">
+            <i class="ph-light ph-handshake"></i>
+            <h3>Melhor preço do mercado</h3>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px;">
+          <a href="#orcamento" class="cta-button">SOLICITAR ORÇAMENTO</a>
+        </div>
+        <p style="text-align: center; margin-top: 30px; font-weight: 600; font-size: 1.2rem;">
+          Enquanto muitos lugares vendem só o pneu, nós entregamos o carro pronto e seguro para rodar durante todo ano.
+        </p>
+      </div>
+    </section>
+
+    <!-- Riscos e Solução -->
+    <section class="risks-section ">
+      <div class="container">
+        <div class="comparison-grid">
+          <div>
+            <h2 class="section-title" style="text-align: left; font-size: 2rem">
+              RODAR COM <span class="highlight">PNEU CARECA</span> PODE CAUSAR:
+            </h2>
+            <ul class="risks-list">
+              <li><i class="fas fa-times-circle"></i> Aquaplanagem</li>
+              <li>
+                <i class="fas fa-times-circle"></i> Perda de controle do carro
+              </li>
+              <li>
+                <i class="fas fa-times-circle"></i> Aumento do consumo de
+                combustível
+              </li>
+              <li><i class="fas fa-times-circle"></i> Multa</li>
+              <li>
+                <i class="fas fa-times-circle"></i> Risco de acidente
+              </li>
+            </ul>
+          </div>
+
+          <div class="solution-box">
+            <h2 style="font-size: 2rem; margin-bottom: 15px">
+              Agora pensa comigo:
+            </h2>
+            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.7)">
+              Se você já vai precisar trocar, não faz sentido pagar mais caro ou comprar de qualquer lugar porque sua família precisa estar segura. Você tem a chance de comprar:
+            </p>
+
+            <ul class="check-list">
+              <li>
+                <i class="fas fa-check-circle"></i> Pneus nacionais e importados com <span class="highlight">PREÇO DE FÁBRICA</span>
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Garantia total e procedência garantida
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> <span class="highlight">INSTALAÇÃO IMEDIATA</span> por equipe técnica
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Melhor custo-benefício de todo o ES
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Empresa referência no mercado capixaba
+              </li>
+            </ul>
+            <div style="margin-top: 30px;">
+              <a href="#orcamento" class="cta-button" style="width: 100%; text-align: center;">SOLICITAR ORÇAMENTO</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Commercial Team Section -->
+    <section class="commercial-section ">
+      <div class="container">
+        <div style="display: flex; flex-wrap: wrap; gap: 60px; align-items: center;">
+          <div class="commercial-content" style="flex: 1 1 400px; text-align: left; max-width: 100%; margin: 0;">
+            <h2 class="section-title" style="text-align: left; line-height: 1.2;">VOCÊ NÃO VAI TROCAR PNEU TODO MÊS, ENTÃO FAÇA NO <span class="highlight">LUGAR CERTO</span>.</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 20px; color: #FFFFFF; font-weight: 700;">
+              FALE AGORA COM NOSSO TIME E RECEBA OS MODELOS E PREÇOS NO <span style="color: #3CAEFE;">WHATSAPP</span>
+            </p>
+            <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem;">Clique no botão abaixo, fale com nosso comercial e receba:</p>
+            
+            <div class="commercial-list" style="margin-top: 30px;">
+              <div class="commercial-list-item"><i class="fas fa-check"></i> Modelos disponíveis</div>
+              <div class="commercial-list-item"><i class="fas fa-check"></i> Medidas para seu carro</div>
+              <div class="commercial-list-item"><i class="fas fa-check"></i> Valores promocionais</div>
+              <div class="commercial-list-item"><i class="fas fa-check"></i> Formas de pagamento</div>
+              <div class="commercial-list-item"><i class="fas fa-check"></i> Parcelamento</div>
+              <div class="commercial-list-item"><i class="fas fa-check"></i> Agendamento de serviço</div>
+            </div>
+
+            <a href="#orcamento" class="cta-button" style="display: inline-flex; margin-top: 20px;">SOLICITAR ORÇAMENTO</a>
+          </div>
+          
+          <div style="flex: 1 1 400px;">
+            <img src="premium-tire-service.png" alt="Serviço Premium Thiago Pneus" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05); object-fit: cover; aspect-ratio: 4/3;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marcas (Marquee CSS) -->
+    <section class=" ">
+      <div class="container">
+        <h2 class="section-title">Trabalhamos com as principais marcas do mercado</h2>
+        <p class="section-subtitle">Qualidade garantida para todos os tipos de veículos.</p>
+        <div class="brands-marquee">
+          <div class="marquee-content">
+            <span class="brand-item">Michelin</span>
+            <span class="brand-item">Pirelli</span>
+            <span class="brand-item">Goodyear</span>
+            <span class="brand-item">Bridgestone</span>
+            <span class="brand-item">Continental</span>
+            <span class="brand-item">Firestone</span>
+            <span class="brand-item">Dunlop</span>
+            <!-- Duplicados para o loop infinito -->
+            <span class="brand-item">Michelin</span>
+            <span class="brand-item">Pirelli</span>
+            <span class="brand-item">Goodyear</span>
+            <span class="brand-item">Bridgestone</span>
+            <span class="brand-item">Continental</span>
+            <span class="brand-item">Firestone</span>
+            <span class="brand-item">Dunlop</span>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px;">
+          <a href="#orcamento" class="cta-button">RECEBER ORÇAMENTO AGORA</a>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Footer Section Update & FAQ -->
+    <section class="faq-section ">
+      <div class="container">
+        <h2 class="section-title"><span class="highlight">QUEM CONHECE</span>, CONFIA!</h2>
+        <p class="section-subtitle">A Thiago Pneus é uma das oficinas e lojas de pneus mais conhecidas da região, atendendo clientes todos os dias com excelência.</p>
+        
+        <div class="services-grid">
+          <div class="service-badge">Pneus nacionais e importados</div>
+          <div class="service-badge">Alinhamento</div>
+          <div class="service-badge">Balanceamento</div>
+          <div class="service-badge">Suspensão</div>
+          <div class="service-badge">Freios</div>
+          <div class="service-badge">Serviços automotivos em geral</div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 80px;">
+          <a href="#orcamento" class="cta-button">SOLICITAR ORÇAMENTO</a>
+        </div>
+
+        <h2 class="section-title"><span class="highlight">DÚVIDAS</span> FREQUENTES</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="faq-question">Quais as formas de pagamento? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Trabalhamos com cartões de crédito (parcelamento em até 10x), débito, PIX e dinheiro.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">A montagem é gratuita? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Sim! Comprando o pneu conosco, a montagem é por nossa conta.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Vocês atendem por ordem de chegada? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Sim, atendemos por ordem de chegada, mas você também pode agendar seu horário para maior comodidade.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Onde fica a loja? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">Estamos na Av. Mal. Mascarenhas de Moraes, 1427 - Santa Maria, Vitória - ES.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Redesenhado -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h4>Thiago Pneus</h4>
+            <p>A maior referência no Espírito Santo em pneus e serviços automotivos. Qualidade, preço justo e confiança em um só lugar.</p>
+            <div style="margin-top: 25px; display: flex; gap: 15px;">
+              <a href="#" style="color: #FFFFFF; font-size: 1.5rem; transition: 0.3s;"><i class="fab fa-instagram"></i></a>
+              <a href="#" style="color: #FFFFFF; font-size: 1.5rem; transition: 0.3s;"><i class="fab fa-facebook"></i></a>
+              <a href="#" style="color: #FFFFFF; font-size: 1.5rem; transition: 0.3s;"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+          
+          <div class="footer-links">
+            <h4>Links Rápidos</h4>
+            <ul>
+              <li><a href="#orcamento">Solicitar Orçamento</a></li>
+              <li><a href="#">Nossas Marcas</a></li>
+              <li><a href="#">Serviços</a></li>
+              <li><a href="#">Dúvidas Frequentes</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-contact">
+            <h4>Contato & Endereço</h4>
+            <div class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <p>Nossa Loja</p>
+                <span>Av. Mal. Mascarenhas de Moraes, 1427<br>Santa Maria - Vitória / ES</span>
+              </div>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-clock"></i>
+              <div>
+                <p>Horário</p>
+                <span>Seg à Sex: 07:45 às 17:30<br>Sáb: 08:00 às 12:00</span>
+              </div>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fab fa-whatsapp"></i>
+              <div>
+                <p>WhatsApp</p>
+                <span>(27) 99891-3705</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="copyright">
+          &copy; 2026 Thiago Pneus. Todos os direitos reservados. Projeto desenvolvido para alta performance.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // FAQ Interactivity
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          const faqItem = button.parentElement;
+          faqItem.classList.toggle('active');
+        });
+      });
+
+      // Formulário para WhatsApp
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const formData = new FormData(this);
+          const nome = formData.get("nome");
+          const tel = formData.get("tel");
+          const veiculo = formData.get("veiculo");
+          const qtd = formData.get("qtd");
+          const instalacao = formData.get("instalacao");
+          const quando = formData.get("quando");
+
+          const mensagem =
+            `*Solicitação de Orçamento - Thiago Pneus*%0A%0A` +
+            `*Nome:* ${nome}%0A` +
+            `*Telefone:* ${tel}%0A` +
+            `*Veículo:* ${veiculo}%0A` +
+            `*Quantidade:* ${qtd}%0A` +
+            `*Instalação:* ${instalacao}%0A` +
+            `*Urgência:* ${quando}%0A%0A` +
+            `Quero receber os modelos e preços no WhatsApp.`;
+
+          const numeroWhatsApp = "5527998913705";
+          const url = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+          window.open(url, "_blank");
+        });
+
+      // Carousel Logic
+      const track = document.getElementById('carouselTrack');
+      const dotsContainer = document.getElementById('carouselNav');
+      const slides = Array.from(track.children);
+      let currentIndex = 0;
+
+      function getVisibleSlides() {
+        if (window.innerWidth >= 1100) return 3;
+        if (window.innerWidth >= 768) return 2;
+        return 1;
+      }
+
+      function updateCarousel() {
+        const visibleSlides = getVisibleSlides();
+        const slideWidth = 100 / visibleSlides;
+        track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+        
+        // Update dots
+        const dots = Array.from(dotsContainer.children);
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentIndex);
+        });
+      }
+
+      function createDots() {
+        dotsContainer.innerHTML = '';
+        const visibleSlides = getVisibleSlides();
+        const totalDots = slides.length - (visibleSlides - 1);
+        
+        for (let i = 0; i < totalDots; i++) {
+          const dot = document.createElement('div');
+          dot.className = 'carousel-dot';
+          if (i === 0) dot.classList.add('active');
+          dot.addEventListener('click', () => {
+            currentIndex = i;
+            updateCarousel();
+          });
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      // Initial setup
+      createDots();
+      window.addEventListener('resize', () => {
+        createDots();
+        updateCarousel();
+      });
+
+      // Autoplay with reset
+      let autoplayInterval = setInterval(() => {
+        const visibleSlides = getVisibleSlides();
+        const maxIndex = slides.length - visibleSlides;
+        currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+        updateCarousel();
+      }, 5000);
+
+      function resetAutoplay() {
+        clearInterval(autoplayInterval);
+        autoplayInterval = setInterval(() => {
+          const visibleSlides = getVisibleSlides();
+          const maxIndex = slides.length - visibleSlides;
+          currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+          updateCarousel();
+        }, 5000);
+      }
+
+      // Arrows Logic
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      prevBtn.addEventListener('click', () => {
+        const visibleSlides = getVisibleSlides();
+        const maxIndex = slides.length - visibleSlides;
+        currentIndex = currentIndex <= 0 ? maxIndex : currentIndex - 1;
+        updateCarousel();
+        resetAutoplay();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        const visibleSlides = getVisibleSlides();
+        const maxIndex = slides.length - visibleSlides;
+        currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+        updateCarousel();
+        resetAutoplay();
+      });
+    </script>
+  
+</body>
+</html>
+
